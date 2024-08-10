@@ -6,4 +6,19 @@ os.chdir('C:/Users/Siris/Desktop/GitHub Projects 100 Days NewB/_24_0076__Day72_D
 
 # Now read the CSV file
 df = pd.read_csv('salaries_by_college_major.csv')
-print(df)
+
+# Display the first few rows
+#df.tail()
+
+clean_df = df.dropna()
+#clean_df.tail()
+
+#clean_df['Mid-Career Median Salary'].idxmin()
+#clean_df['Starting Median Salary'].idxmax()
+#clean_df.loc[18]
+#clean_df.loc[clean_df['Mid-Career Median Salary'].idxmin()]
+#clean_df['Mid-Career 90th Percentile Salary'] - clean_df['Mid-Career 10th Percentile Salary']
+
+spread_col = clean_df['Mid-Career 90th Percentile Salary'] - clean_df['Mid-Career 10th Percentile Salary']
+clean_df.insert(1, 'Spread', spread_col)
+clean_df.head()
